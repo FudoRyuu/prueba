@@ -1,0 +1,261 @@
+/*Inicio slider*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#title-page{
+	text-align: center;
+	margin: 0px 0px;
+	font-size: 70px;
+	color: #fff;
+	margin-top: -16px;
+	text-shadow: 3px 3px 2px rgba(000,000,000,0.50);
+}
+
+.flexslider{
+	width: 95%;
+	height: 440px;
+	max-width: 1000px;
+	margin: 50px auto;/*50px de margen arriba y abajo y auto en los costados para centrar*/
+	border: 5px solid #fff;
+	border-radius: 8px;
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.70);
+	display: flex;
+	flex-direction: column;
+	margin-top: 0px;
+	position: relative;
+}
+
+.flexslider ul{
+	list-style: none;
+}
+
+
+.slides /*Llamamos al slides, al li e img que se encuentran dentro de la clase slides
+para que todo tenga un ancho de 100%*/
+.slides li,
+.slides li img{
+	width: 100%;
+}
+
+.slides > li img{
+	width: 100%;
+	height: 430px;	
+}
+/*Paginacion*/
+
+.flex-control-nav.flex-control-paging{
+	width: 120px;
+	padding: 20px 0px;
+	/*border: 2px solid rgba(255,255,255,.3);/*Consultar solid*/
+	align-self: center;/*esto posible centrar SOLO esto debido a que el padre usa flexbox*/
+	list-style: none;
+	border-radius: 10px;
+	/*box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.80);*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: -10px;
+	z-index: 3;
+}
+
+.flex-control-nav li{
+	display: inline-block;
+	margin: 0px 5px;/*centra en sentido top y bottom y espacia entre laterales*/
+}
+
+.flex-control-nav li a{
+	display: block;
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border-radius: 50%;
+	text-indent: -150px;
+	overflow: hidden;/*no es necesario ya que con text ident se podria -9999*/
+	box-shadow: inset 0px -3px 2px 0px rgba(0,0,0,0.55);
+}
+
+.flex-control-nav li a.flex-active{
+	background: gray;/*Y NO 50 */
+}
+
+/*Navegacion*/
+.flex-direction-nav{
+	z-index: 3;
+	list-style: none;
+}
+
+.flex-direction-nav a{
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	color: #fff;
+	text-decoration: none;
+	background: rgba(10,15,10,0.55);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*border: 2px solid rgba(255,255,255,.3);*/
+	border-radius: 50px;
+	/*box-shadow: 0px,0px 3px 0px rgba(0,0,0,0.80);*/
+	top: 50%;
+	margin-top: -30px;
+	transition: all 0.3s ease-in-out;
+}
+
+.flex-direction-nav a.flex-prev::before{/*CONSULTAAAAAAAAAAAAAAAAAAAR*/
+	content: "\f104";
+  	font: normal normal normal 14px/1 FontAwesome;
+  	text-rendering: auto;
+  	position: center;
+  	font-size: 50px;
+  	-webkit-font-smoothing: antialiased;
+ 	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.flex-direction-nav a.flex-next::before{/*CONSULTAAAAAAAAAAAAAAAAAAAR*/
+	content: "\f105";
+  	font: normal normal normal 14px/1 FontAwesome;
+  	text-rendering: auto;
+  	font-size: 50px;
+  	-webkit-font-smoothing: antialiased;
+ 	-moz-o-sx-font-smoothing: grayscale;
+}
+
+.flex-direction-nav .flex-prev{
+	left: 0px;
+	opacity: 0;
+}
+
+.flex-direction-nav .flex-next{
+	right: 0px;
+	opacity: 0;
+}
+
+
+
+.flexslider:hover .flex-direction-nav .flex-prev{
+	left: 15px;
+	opacity: 1;
+}
+
+.flexslider:hover .flex-direction-nav .flex-next{
+	right: 15px;
+	opacity: 1;
+}
+/*Caption*/
+.caption{
+	position: absolute;
+	top: 0;
+	color: #ff6f6f;	
+	z-index: 2;/*En caso de que el texto no aparexca se le da mayor prioridad que al slider para que 
+	aparezca sobre el*/
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.caption h2{
+	font-size: 60px;
+	color: #fff;
+	text-shadow: 3px 3px 2px rgba(000,000,000,0.70);
+}
+/* Fin slider */
+/*Responsive*/
+
+@media screen and (max-width: 750px){
+	.flex-direction-nav .flex-prev{
+		left: 15px;
+		opacity: 1;
+	}
+
+	.flex-direction-nav .flex-next{
+		right: 15px;
+		opacity: 1;
+	}
+
+	.caption h2{
+		font-size: 48px;
+	}
+
+	.flex-direction-nav a{
+		top: 100%;
+		transition-property: none;
+	}
+
+	#title-page{
+		font-size: 45px;
+	}
+}
+
+@media screen and (max-width: 730px){
+	.flex-direction-nav a{
+		top: 100%;
+	}
+	.caption h2{
+		font-size: 38px;
+	}
+	.flexslider{
+		height: 370px;
+	}
+
+	.slides > li img{
+		height: 360px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.flex-direction-nav a{
+		top: 100%;
+	}
+
+	.caption h2{
+		font-size: 38px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.flexslider{
+		height: 350px;
+	}
+
+	.slides > li img{
+		height: 340px;
+	}
+}
+
+@media screen and (max-width: 530px){
+	.caption h2{
+		font-size: 34px;
+	}
+
+	#title-page{
+		font-size: 38px;
+	}
+}
+
+@media screen and (max-width: 450px){
+	.flexslider{
+		width: 100%;
+		border-radius: 0px;
+		border: none;
+	}
+
+	.flex-control-nav{
+		top: 290px;
+	}
+
+	.flex-direction-nav a{
+		margin-top: -18%;
+		background: black;
+	}
+}

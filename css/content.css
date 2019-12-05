@@ -1,0 +1,76 @@
+*{margin:0; padding: 0; box-sizing: border-box;}
+/*Imagen encabezado de subpaginas*/
+.containBigImg{
+	position: relative;
+	width: 100%;
+	height: 450px;
+	top: -14px;
+	background: rgba(255,255,0,0.2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.thisImg{
+	width: 80%;
+	height: 450px;
+}
+
+.thisImg img{
+	width: 100%;
+	height: 100%;
+}
+/*Fin*
+/*Inicio cajas*/
+.col{
+	width: 320px;
+	height: 520px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: justify;
+	background: rgba(51, 249, 108, 0.6);
+	padding: 30px;
+}
+
+.col h2{
+	color: #006400;
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+.col img{
+	width: 260px;
+	height: 190px;
+}
+
+.rowImg{	
+	text-align: center;
+	margin: 35px auto;
+}
+/*Fin*/
+@media screen and (max-width: 750px){
+	.containBigImg{
+		height: 350px;
+	}
+
+	.thisImg{
+		width: 80%;
+		height: 350px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.containBigImg{
+		height: 280px;
+		box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+	}
+
+	.thisImg{
+		width: 100%;
+		height: 280px;
+	}
+
+}
